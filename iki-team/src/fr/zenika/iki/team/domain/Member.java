@@ -1,5 +1,7 @@
 package fr.zenika.iki.team.domain;
 
+import java.sql.Timestamp;
+
 /**
  * Created by melghaouat on 27/08/2017.
  */
@@ -10,6 +12,7 @@ public class Member {
     private String email;
     private double salary;
     private Role role;
+    private Timestamp joiningDate;
 
     public Member(int id, String nom, String prenom, String email) {
         this.id = id;
@@ -48,5 +51,29 @@ public class Member {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public Timestamp getJoiningDate() {
+        return joiningDate;
+    }
+
+    public void setJoiningDate(Timestamp joiningDate) {
+        this.joiningDate = joiningDate;
     }
 }

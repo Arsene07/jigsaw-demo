@@ -2,6 +2,7 @@ package fr.zenika.iki.api.controller;
 
 import fr.zenika.iki.recruitment.domain.Candidat;
 
+import fr.zenika.iki.team.domain.Member;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +11,9 @@ import java.util.List;
  */
 public class AdhesionCtl {
 
-    List<Candidat> candidats;
+    List<Candidat> candidats = new ArrayList<Candidat>();
+    List<Member> members = new ArrayList<Member>();
+
 
     public AdhesionCtl(){
         candidats = new ArrayList<Candidat>();
@@ -20,12 +23,12 @@ public class AdhesionCtl {
 
     }
 
-    public List<Candidat> getMemberList(){
+    public List<Candidat> getCandidatsList(){
         return new ArrayList<Candidat>();
     }
 
-    public void addMember(Candidat membre){
-        candidats.add(membre);
+    public void addMember(Member membre){
+        members.add(membre);
     }
 
     public void removeMembre(Candidat membre){

@@ -1,3 +1,4 @@
 module iki.mission {
-    requires iki.team;
+    requires transitive iki.team;
+    requires java.logging;
 }

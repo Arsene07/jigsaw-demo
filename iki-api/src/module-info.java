@@ -3,4 +3,5 @@
  */
 module iki.api {
     requires iki.recruitement;
+    requires iki.mission;
 }
