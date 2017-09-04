@@ -1,0 +1,14 @@
+en vrac:
+
+    - make use of unsafe classes
+
+    - make use of unsupported classes (Base64 ??)
+
+    - make a custom JVM
+
+    - try a maven build
+
+    - Use some popular librairy (jackson for serialisation )
+        - make jackson jars a module
+
+    - use a service loader

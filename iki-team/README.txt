@@ -1,9 +1,12 @@
 compile:
-    javac -d classes --source-path src $(find . -name '*.java')
+    javac -d classes --module-path mods --source-path src $(find . -name '*.java')
 
 making jar:
-    jar cf ../mods/iki-team.jar -C classes/ .
+    jar --create  --file libs/iki-team.jar -C classes/ .
 
-viewing content of jar:
+viewing the content of jar:
     jar tf ../mods/iki-team.jar
+
+run the module:
+    java --module-path libs/ -m iki.team/fr.zenika.iki.team.service.TeamManager
 
