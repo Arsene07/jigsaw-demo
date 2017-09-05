@@ -10,7 +10,7 @@ public class Member {
     private String nom;
     private String prenom;
     private String email;
-    private double salary;
+    private double salary = 80000;
     private Role role;
     private Timestamp joiningDate;
 
@@ -57,9 +57,9 @@ public class Member {
         return salary;
     }
 
-    public void setSalary(double salary) {
+    /*public void setSalary(double salary) {
         this.salary = salary;
-    }
+    }*/
 
     public Role getRole() {
         return role;

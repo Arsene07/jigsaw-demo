@@ -10,3 +10,4 @@ viewing the content of jar:
 run the module:
     java --module-path libs/ -m iki.team/fr.zenika.iki.team.service.TeamManager
 
+jdeps --module-path ../mods/  ../mods/iki-team.jar

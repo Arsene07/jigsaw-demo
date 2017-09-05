@@ -2,19 +2,34 @@ package fr.zenika.iki.team.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import fr.zenika.iki.team.domain.Member;
+import fr.zenika.iki.team.service.internal.SalaryRaiseCalculator;
+import sun.misc.Unsafe;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
 import java.util.logging.Logger;
 
+
+//import sun.font.CFont;
+
 public class TeamManager {
 
-    List<Member> members = new ArrayList<>();
+    private List<Member> members = new ArrayList<>();
+
+    public static  TeamManager teamManager = new TeamManager();
 
     private final static Logger LOGGER = Logger.getLogger(TeamManager.class.getName());
+
+    private TeamManager(){}
+
+    public static TeamManager getTeamManager() {
+        return teamManager;
+    }
 
     public void addMember(Member member){
         LOGGER.info("Adding a new member");
@@ -28,14 +43,19 @@ public class TeamManager {
 
    public void logIkiMembers() throws  IOException {
        LOGGER.info("Logging iki team members in Json format.");
-       File json =  new File("iki-team.json");
+       File json =  new File("/applis/jigsaw-demo/iki-team/iki-team.json");
        ObjectMapper objectMapper = new ObjectMapper();
-       for (Member member:members ){
-           objectMapper.writeValue(json, members);
-       }
+       objectMapper.writeValue(json, members);
+
    }
 
-   public static void main(String[] args) throws IOException {
+    public void raiseIkiMembers(double raise) throws IOException, NoSuchFieldException, IllegalAccessException {
+        LOGGER.info("Raising iki team members, youpiii !!.");
+
+        members.stream().forEach(member -> SalaryRaiseCalculator.raiseSalary(member, raise));
+    }
+
+   public static void main(String[] args) throws IOException, NoSuchFieldException, IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchMethodException {
        TeamManager teamManager = new TeamManager();
 
        teamManager.addMember(new Member(1,"Ung", "Celine","celine.ung@zenika.com"));
@@ -46,6 +66,15 @@ public class TeamManager {
        teamManager.addMember(new Member(6,"Pierre", "Raby","pierre.raby@zenika.com"));
        teamManager.addMember(new Member(7,"ElGhaouat", "Mohammed","mohammed.elghaouat@zenika.com"));
 
+       teamManager.raiseIkiMembers(500.d);
        teamManager.logIkiMembers();
+
+       Constructor<Unsafe> unsafeConstructor = Unsafe.class.getDeclaredConstructor();
+       unsafeConstructor.setAccessible(true);
+       Unsafe unsafe = unsafeConstructor.newInstance();
+
+       TeamManager instance = (TeamManager)
+               unsafe.allocateInstance(TeamManager.class);
+
    }
 }
