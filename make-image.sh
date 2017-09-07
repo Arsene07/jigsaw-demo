@@ -1,0 +1,1 @@
+/Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home/bin/jlink --module-path /Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home/jmods/:mods/   --add-modules iki.team,iki.mission,iki.api,iki.recruitement --limit-modules iki.team,iki.mission,iki.api,iki.recruitement --output iki-image4
