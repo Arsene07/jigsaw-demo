@@ -43,9 +43,9 @@ public class TeamManager {
 
    public void logIkiMembers() throws  IOException {
        LOGGER.info("Logging iki team members in Json format.");
-       File json =  new File("/applis/jigsaw-demo/iki-team/iki-team.json");
        ObjectMapper objectMapper = new ObjectMapper();
-       objectMapper.writeValue(json, members);
+       String str = objectMapper.writeValueAsString(members);
+       System.out.println("\n\n\n Logging members: \n\n\n" + str);
 
    }
 
