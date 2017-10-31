@@ -1,6 +1,6 @@
 echo 'compiling module'
 #javac -d classes --module-path ../modules --source-path src $(find . -name '*.java')
-javac -d classes/ -cp ../libs/jackson-core-2.8.10.jar:../libs/jackson-annotations-2.8.10.jar --module-path ../modules/ --source-path src/ $(find . -name '*.java')
+javac -d classes/ -cp ../libs/jackson-core-2.8.10.jar:../libs/jackson-annotations-2.8.10.jar --add-exports java.desktop/sun.font=iki.team --module-path ../modules/ --source-path src/ $(find . -name '*.java')
 
 
 #for sun.font:

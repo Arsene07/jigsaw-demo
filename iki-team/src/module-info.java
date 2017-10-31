@@ -6,4 +6,5 @@ module iki.team{
     requires java.sql;
     requires jackson.databind;
     requires jdk.unsupported;
+    requires java.desktop;
 }

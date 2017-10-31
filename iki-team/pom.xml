@@ -35,7 +35,9 @@
                 <configuration>
                     <compilerArgs>
                         <arg>--module-path</arg>
-                        <arg>/applis/jigsaw-demo/mods</arg>
+                        <arg>/applis/jigsaw-demo/modules</arg>
+                        <arg>--add-exports</arg>
+                        <arg>java.desktop/sun.font=iki.team</arg> 
                     </compilerArgs>
                 </configuration>
             </plugin>
